@@ -5,30 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Undangan Pernikahan</title>
 <style>
-  body { font-family: Arial, sans-serif; margin:0; padding:0; background-color:#fdf6f0; color:#333; }
-  header { text-align: center; padding: 40px; background: #f4e1d2; }
-  header img { max-width: 150px; border-radius: 50%; }
-  h1, h2 { margin: 10px 0; }
-  .section { padding: 20px; max-width: 800px; margin: auto; }
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background-color:#fdf6f0; color:#333; overflow-x:hidden; }
+  header { text-align: center; padding: 40px; background: #f4e1d2; animation: fadeIn 2s ease-in; }
+  header img { max-width: 150px; border-radius: 50%; animation: zoomIn 2s ease-in; }
+  h1, h2 { margin: 10px 0; animation: slideDown 1.5s ease-in-out; }
+  .section { padding: 20px; max-width: 800px; margin: auto; animation: fadeInUp 1.5s ease-in-out; }
   .gallery { display: flex; flex-wrap: wrap; gap: 10px; }
-  .gallery img { width: 100%; max-width: 250px; border-radius: 8px; cursor: pointer; }
-  .rekening { background: #fff3e0; padding: 15px; border-radius: 8px; text-align: center; }
-  .rekening button { padding: 8px 12px; background: #e0a96d; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  .gallery img { width: 100%; max-width: 250px; border-radius: 8px; cursor: pointer; transition: transform 0.3s; }
+  .gallery img:hover { transform: scale(1.05); }
+  .rekening { background: #fff3e0; padding: 15px; border-radius: 8px; text-align: center; animation: pulse 2s infinite; }
+  .rekening button { padding: 8px 12px; background: #e0a96d; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+  .rekening button:hover { background: #d18d4e; }
   iframe { width: 100%; height: 300px; border:0; border-radius: 8px; }
+
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes zoomIn { from { transform:scale(0.8); opacity:0; } to { transform:scale(1); opacity:1; } }
+  @keyframes slideDown { from { transform:translateY(-20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+  @keyframes fadeInUp { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+  @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.02); } }
 </style>
 </head>
 <body>
+<audio autoplay loop>
+  <source src="wedding.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung elemen audio.
+</audio>
 <header>
   <img src="pengantin.jpg" alt="Foto Pengantin">
   <h1>Undangan Pernikahan</h1>
-  <h2>Muardi & Reza</h2>
-  <p>Minggu, 07 Desember 2025</p>
+  <h2>Muardi & Indah</h2>
+  <p>Minggu, 07 September 2025</p>
 </header>
 
 <section class="section">
   <h2>Lokasi Acara</h2>
-  <p>Rumah Masa Depan Cirewed Tangerang</p>
-  <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.89576426057602!2d106.53973324113885!3d-6.219847271502008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ff662cad54a9%3A0xd55cdb990b1dab59!2srumah%20masa%20depan!5e0!3m2!1sid!2sid!4v1755243225418!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <p>Gedung Serbaguna Cinta Abadi, Cirewed</p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.89576426057602!2d106.53973324113885!3d-6.219847271502008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ff662cad54a9%3A0xd55cdb990b1dab59!2srumah%20masa%20depan!5e0!3m2!1sid!2sid!4v1755243692274!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
 <section class="section">
@@ -42,7 +54,7 @@
 
 <section class="section rekening">
   <h2>Nomor Rekening</h2>
-  <p>Bank BCA - 1234567890 a.n. Muardi & Reza</p>
+  <p>Bank BCA - 1234567890 a.n. Muardi & Indah</p>
   <button onclick="copyRekening()">Salin Nomor Rekening</button>
 </section>
 
